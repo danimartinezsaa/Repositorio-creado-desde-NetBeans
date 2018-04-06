@@ -6,8 +6,6 @@
 package com.dani.libreriagithub;
 
 import java.io.IOException;
-import org.kohsuke.github.GHCreateRepositoryBuilder;
-import org.kohsuke.github.GitHub;
 
 /**
  *
@@ -18,12 +16,10 @@ public class Principal{
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException {
-        
-        GitHub github=GitHub.connect();
-        GHCreateRepositoryBuilder builder;
-        builder = github.createRepository("Repositorio creado desde NetBeans");
-        builder.create();
+    public static void main(String[] args) throws IOException{
+
+        Menu.opciones();
+
     }
 
 }
