@@ -54,9 +54,12 @@ public class Menu{
                 Metodos.inicializarRepo(nombre);
                 break;
             case 4:
+                
                 nombre=JOptionPane.showInputDialog("Inserte la ruta del proyecto:");
                 url=JOptionPane.showInputDialog("Inserte la url del repositorio remoto");
-                Metodos.push(url, nombre);
+                String usuario=JOptionPane.showInputDialog("Inserte usuario:");
+                String contrasena=JOptionPane.showInputDialog("Inserte contraseña:");
+                Metodos.push(url, nombre,contrasena,usuario);
                 break;
             case 5:
                 System.exit(0);

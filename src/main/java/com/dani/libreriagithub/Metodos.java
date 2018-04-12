@@ -110,23 +110,26 @@ public class Metodos{
         }
     }
 
-    public static void push(String url, String repositorio){
+    public static void push(String url, String repositorio,String contrasena,String usuario){
         try{
-            Repository localRepo=new FileRepository(repositorio);
-            Git git=new Git(localRepo);
+            FileRepositoryBuilder repositoryBuilder=new FileRepositoryBuilder();
+            Repository repository=repositoryBuilder.setGitDir(new File(repositorio))
+                    .readEnvironment()
+                    .findGitDir()
+                    .setMustExist(true)
+                    .build();
             
-            // add remote repo:
+            Git git=new Git(repository);
+
             RemoteAddCommand remoteAddCommand=git.remoteAdd();
             remoteAddCommand.setName("origin");
             remoteAddCommand.setUri(new URIish(url));
-            // you can add more settings here if needed
             remoteAddCommand.call();
             
-            // push to remote:
             PushCommand pushCommand=git.push();
-            pushCommand.setCredentialsProvider(new UsernamePasswordCredentialsProvider("username", "password"));
-            // you can add more settings here if needed
+            pushCommand.setCredentialsProvider(new UsernamePasswordCredentialsProvider(usuario, contrasena));
             pushCommand.call();
+            
         }catch(IOException ex){
             System.out.println("Error: "+ex);
         }catch(URISyntaxException ex){
