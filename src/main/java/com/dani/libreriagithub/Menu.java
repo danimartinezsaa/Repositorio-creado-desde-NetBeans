@@ -5,9 +5,7 @@
  */
 package com.dani.libreriagithub;
 
-import java.io.IOException;
 import javax.swing.JOptionPane;
-import org.eclipse.jgit.api.errors.GitAPIException;
 
 /**
  *
@@ -15,7 +13,7 @@ import org.eclipse.jgit.api.errors.GitAPIException;
  */
 public class Menu{
 
-    public static void opciones() throws IOException, GitAPIException{
+    public static void opciones(){
         String nombre;
         String[] menu={"Crear repositorio", "Clonar", "Commit", "Inicializar","Push", "Salir"};
         int opcion=JOptionPane.showOptionDialog(
@@ -56,7 +54,9 @@ public class Menu{
                 Metodos.inicializarRepo(nombre);
                 break;
             case 4:
-                
+                nombre=JOptionPane.showInputDialog("Inserte la ruta del proyecto:");
+                url=JOptionPane.showInputDialog("Inserte la url del repositorio remoto");
+                Metodos.push(url, nombre);
                 break;
             case 5:
                 System.exit(0);
