@@ -109,7 +109,13 @@ public class Metodos{
             System.out.println("Error:"+ex);
         }
     }
-
+    /**
+     * Método para hacer push de un proyecto.
+     * @param url URL del repositorio de GitHub.
+     * @param repositorio Ruta local del repositio en dónde está el .git.
+     * @param contrasena Contraseña del usuario de GitHub en dónde está el repositorio al que queremos hacer Push.
+     * @param usuario Usuario de GitHub en dónde está el repositorio al que queremos hacer Push.
+     */
     public static void push(String url, String repositorio,String contrasena,String usuario){
         try{
             FileRepositoryBuilder repositoryBuilder=new FileRepositoryBuilder();
