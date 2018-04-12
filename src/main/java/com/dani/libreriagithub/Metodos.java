@@ -71,7 +71,7 @@ public class Metodos{
     /**
      * Método para realizar un commit de un repositorio local.
      *
-     * @param ruta Ruta del repositorio en local.
+     * @param ruta Ruta del repositorio en local, dentro de la carpeta .git.
      * @param msn Mensaje para el commit.
      */
     public static void hacerCommit(String ruta, String msn){
@@ -99,7 +99,7 @@ public class Metodos{
     /**
      * Método para inicializar un repositorio.
      *
-     * @param ruta Ruta del repositorio que desea inicializar.
+     * @param ruta Ruta de la carpeta en dónde queremos inicializar el repositorio.
      */
     public static void inicializarRepo(String ruta){
         InitCommand repositorio=new InitCommand();
